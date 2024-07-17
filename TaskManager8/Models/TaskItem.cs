@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TaskManagerApp.Models
 {
-    public class Task
+    public class TaskItem
     {
         public int ID { get; set; }
 
@@ -18,12 +18,12 @@ namespace TaskManagerApp.Models
         [StringLength(500)]
         public string Description { get; set; }
         public bool IsComplete { get; set; }
-        public Task()
+        public TaskItem()
         {
             Title = string.Empty;
             Description = string.Empty;
         }
-        public Task(int id, string title, string description, bool isComplete)
+        public TaskItem(int id, string title, string description, bool isComplete)
         {
             ID = id;
             Title = title;
@@ -31,21 +31,7 @@ namespace TaskManagerApp.Models
             IsComplete = isComplete;
         }
 
-        public override string ToString()
-        {
-            return $"{ID}/{Title}/{Description}/{IsComplete}";
-        }
-        public static Task FromString(string taskString)
-        {
-            var parts = taskString.Split('/');
-            return new Task
-            {
-                ID = int.Parse(parts[0]),
-                Title = parts[1],
-                Description = parts[2],
-                IsComplete = bool.Parse(parts[3])
-            };
-        }
+       
 
     }
 }

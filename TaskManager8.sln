@@ -6,7 +6,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager8", "TaskManager
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TaskManagerDB", "TaskManagerDB\TaskManagerDB.sqlproj", "{392267DD-4E37-4B2B-BF0B-C7A9241539F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerWebApp", "TaskManagerWebbApp\TaskManagerWebApp.csproj", "{DE5441FA-B61C-4184-8B78-27E05B658140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagerWebApp", "TaskManagerWebbApp\TaskManagerWebbApp.csproj", "{DE5441FA-B61C-4184-8B78-27E05B658140}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

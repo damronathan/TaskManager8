@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using TaskManagerApp.Data;
@@ -72,6 +72,50 @@ namespace TaskManagerApp.Services
             }
             _context.SaveChanges();
         }
+    }
+}
+*/
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using TaskManagerApp.Models;
+using System.Collections.Generic;
+public class TaskService
+{
+    private readonly HttpClient _httpClient;
+
+    public TaskService()
+    {
+        _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7238/swagger/index.html") };
+    }
+
+    public async Task<IEnumerable<TaskItem>> GetTasksAsync()
+    {
+        return await _httpClient.GetFromJsonAsync<IEnumerable<TaskItem>>("api/Tasks");
+    }
+
+    public async Task<TaskItem> GetTaskByIdAsync(int id)
+    {
+        return await _httpClient.GetFromJsonAsync<TaskItem>($"api/Tasks/{id}");
+    }
+
+    public async Task CreateTaskAsync(TaskItem task)
+    {
+        var response = await _httpClient.PostAsJsonAsync("api/Tasks", task);
+        response.EnsureSuccessStatusCode();
+    }
+
+    public async Task UpdateTaskAsync(TaskItem task)
+    {
+        var response = await _httpClient.PutAsJsonAsync($"api/Tasks/{task.Id}", task);
+        response.EnsureSuccessStatusCode();
+    }
+
+    public async Task DeleteTaskAsync(int id)
+    {
+        var response = await _httpClient.DeleteAsync($"api/Tasks/{id}");
+        response.EnsureSuccessStatusCode();
     }
 }
 

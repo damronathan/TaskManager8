@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,10 +7,10 @@ using TaskManagerApp.Models;
 public class TaskManager
 {
     private string filePath = "task.txt";
-    private List<TaskManagerApp.Models.Task> tasks;
+    private List<TaskManagerApp.Models.TaskItem> tasks;
     public TaskManager()
     {
-        tasks = new List<TaskManagerApp.Models.Task>();
+        tasks = new List<TaskManagerApp.Models.TaskItem>();
         LoadTasks();
     }
     private void LoadTasks()
@@ -18,7 +18,7 @@ public class TaskManager
         if (File.Exists(filePath))
         {
             var lines = File.ReadAllLines(filePath);
-            tasks = lines.Select(TaskManagerApp.Models.Task.FromString).ToList();
+            tasks = lines.Select(TaskManagerApp.Models.TaskItem.FromString).ToList();
         }
     }
     private void SaveTasks()
@@ -26,17 +26,17 @@ public class TaskManager
         var lines = tasks.Select(t => t.ToString()).ToArray();
         File.WriteAllLines(filePath, lines);
     }
-    public void AddTask(TaskManagerApp.Models.Task task)
+    public void AddTask(TaskManagerApp.Models.TaskItem task)
     {
         task.ID = tasks.Count > 0 ? tasks.Max(t => t.ID) + 1 : 1;
         tasks.Add(task);
         SaveTasks();
     }
-    public List<TaskManagerApp.Models.Task> GetTasks()
+    public List<TaskManagerApp.Models.TaskItem> GetTasks()
     {
         return tasks;
     }
-    public void UpdateTask(TaskManagerApp.Models.Task task)
+    public void UpdateTask(TaskManagerApp.Models.TaskItem task)
     {
         var existingTask = tasks.FirstOrDefault(t => t.ID == task.ID);
         if (existingTask != null)
@@ -64,4 +64,4 @@ public class TaskManager
             tasks[i].ID = i + 1;
         }
     }
-}
+}*/

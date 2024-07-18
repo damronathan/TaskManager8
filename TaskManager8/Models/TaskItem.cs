@@ -9,7 +9,7 @@ namespace TaskManagerApp.Models
 {
     public class TaskItem
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -25,7 +25,7 @@ namespace TaskManagerApp.Models
         }
         public TaskItem(int id, string title, string description, bool isComplete)
         {
-            ID = id;
+            Id = id;
             Title = title;
             Description = description;
             IsComplete = isComplete;

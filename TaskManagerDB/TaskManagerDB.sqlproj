@@ -64,7 +64,7 @@
     <Folder Include="dbo\Queries" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Tasks.sql" />
+    <Build Include="dbo\Tables\TaskItem.sql" />
     <Build Include="StoredProcedures\sp_GetTaskById.sql" />
   </ItemGroup>
   <ItemGroup>

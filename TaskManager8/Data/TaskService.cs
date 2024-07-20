@@ -87,34 +87,34 @@ public class TaskService
 
     public TaskService()
     {
-        _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7238/swagger/index.html") };
+        _httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5111/") };
     }
 
     public async Task<IEnumerable<TaskItem>> GetTasksAsync()
     {
-        return await _httpClient.GetFromJsonAsync<IEnumerable<TaskItem>>("api/Tasks");
+        return await _httpClient.GetFromJsonAsync<IEnumerable<TaskItem>>("api/TaskItem");
     }
 
     public async Task<TaskItem> GetTaskByIdAsync(int id)
     {
-        return await _httpClient.GetFromJsonAsync<TaskItem>($"api/Tasks/{id}");
+        return await _httpClient.GetFromJsonAsync<TaskItem>($"api/TaskItem/{id}");
     }
 
     public async Task CreateTaskAsync(TaskItem task)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/Tasks", task);
+        var response = await _httpClient.PostAsJsonAsync("api/TaskItem", task);
         response.EnsureSuccessStatusCode();
     }
 
     public async Task UpdateTaskAsync(TaskItem task)
     {
-        var response = await _httpClient.PutAsJsonAsync($"api/Tasks/{task.Id}", task);
+        var response = await _httpClient.PutAsJsonAsync($"api/TaskItem/{task.Id}", task);
         response.EnsureSuccessStatusCode();
     }
 
     public async Task DeleteTaskAsync(int id)
     {
-        var response = await _httpClient.DeleteAsync($"api/Tasks/{id}");
+        var response = await _httpClient.DeleteAsync($"api/TaskItem/{id}");
         response.EnsureSuccessStatusCode();
     }
 }

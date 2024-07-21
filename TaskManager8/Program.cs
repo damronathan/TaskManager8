@@ -39,7 +39,7 @@ namespace TaskManagerApp
                             await menuMethods.AddTaskAsync();
                             break;
                         case 2:
-                            menuMethods.ViewTasksAsync();
+                            await menuMethods.ViewTasksAsync();
                             break;
                         case 3:
                             await menuMethods.MarkCompleteAsync();

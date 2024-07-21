@@ -6,6 +6,6 @@ public class TaskItemContext : DbContext
 {
     public TaskItemContext(DbContextOptions<TaskItemContext> options) : base(options) { }
 
-    public DbSet<TaskManagerWebbApp.Models.TaskItem> TaskItems { get; set; }
+    public DbSet<TaskItem> TaskItems { get; set; }
 }
 

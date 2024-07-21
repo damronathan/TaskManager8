@@ -87,7 +87,7 @@ public class TaskService
 
     public TaskService()
     {
-        _httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5111/") };
+        _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:7238/") };
     }
 
     public async Task<IEnumerable<TaskItem>> GetTasksAsync()

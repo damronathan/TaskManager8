@@ -16,9 +16,9 @@ public class TaskItemController : ControllerBase
         _context = context;
     }
 
-    // GET: api/Task
+    // GET: api/TaskItem
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskManagerWebbApp.Models.TaskItem>>> GetTask()
+    public async Task<ActionResult<IEnumerable<TaskItem>>> GetTask()
     {
         return await _context.TaskItems.ToListAsync();
     }
@@ -39,7 +39,7 @@ public class TaskItemController : ControllerBase
 
     // POST: api/Task
     [HttpPost]
-    public async Task<ActionResult<TaskManagerWebbApp.Models.TaskItem>> GetTask(TaskManagerWebbApp.Models.TaskItem task)
+    public async Task<ActionResult<TaskItem>> GetTask(TaskItem task)
     {
         _context.TaskItems.Add(task);
         await _context.SaveChangesAsync();
@@ -49,7 +49,7 @@ public class TaskItemController : ControllerBase
 
     // PUT: api/Task/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> GetTask(int id, TaskManagerWebbApp.Models.TaskItem task)
+    public async Task<IActionResult> GetTask(int id, TaskItem task)
     {
         if (id != task.Id)
         {

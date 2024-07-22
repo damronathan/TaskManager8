@@ -20,4 +20,8 @@
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaskManagerLibrary\TaskManagerLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

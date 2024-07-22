@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TaskManagerApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using TaskManagerLibrary.Services;
+using TaskManagerLibrary.Models;
+using System.Diagnostics;
 namespace TaskManagerApp
 
 {
@@ -51,6 +54,11 @@ namespace TaskManagerApp
                             await menuMethods.DeleteTaskAsync();
                             break;
                         case 6:
+                            Process[] myProcList = Process.GetProcessesByName("TaskManagerWebApp");
+                            foreach (Process Target in myProcList)
+                            {
+                                Target.Kill();
+                            }
                             return;
                     }
                 }

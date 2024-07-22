@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using TaskManagerWebbApp.Models;
+using TaskManagerLibrary.Models;
 
 public class TaskItemContext : DbContext
 {

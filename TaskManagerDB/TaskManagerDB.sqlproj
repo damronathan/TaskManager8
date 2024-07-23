@@ -66,6 +66,8 @@
   <ItemGroup>
     <Build Include="dbo\Tables\TaskItem.sql" />
     <Build Include="StoredProcedures\sp_GetTaskById.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="StoredProcedures\sp_GetUserById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TaskManagerDB.publish.xml" />

@@ -16,6 +16,7 @@ namespace TaskManagerApp.Services
         {
             _taskService = taskService;
         }
+        
 
         public async Task<TaskItem> PromptForTaskAsync()
         {
@@ -36,6 +37,7 @@ namespace TaskManagerApp.Services
 
         public int DisplayMenuAndGetSelection(List<string> menu)
         {
+
             foreach (string item in menu)
             {
                 Console.WriteLine(item);

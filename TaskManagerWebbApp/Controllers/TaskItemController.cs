@@ -16,28 +16,14 @@ public class TaskItemController : ControllerBase
         _context = context;
     }
 
-    // GET: api/TaskItem
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TaskItem>>> GetTask()
     {
         return await _context.TaskItems.ToListAsync();
     }
 
-    // GET: api/Task/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<TaskItem>> GetTask(int id)
-    {
-        var task = await _context.TaskItems.FindAsync(id);
+  
 
-        if (task == null)
-        {
-            return NotFound();
-        }
-
-        return task;
-    }
-
-    // POST: api/Task
     [HttpPost]
     public async Task<ActionResult<TaskItem>> GetTask(TaskItem task)
     {
@@ -47,7 +33,6 @@ public class TaskItemController : ControllerBase
         return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
     }
 
-    // PUT: api/Task/5
     [HttpPut("{id}")]
     public async Task<IActionResult> GetTask(int id, TaskItem task)
     {
@@ -77,7 +62,6 @@ public class TaskItemController : ControllerBase
         return NoContent();
     }
 
-    // DELETE: api/Task/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(int id)
     {

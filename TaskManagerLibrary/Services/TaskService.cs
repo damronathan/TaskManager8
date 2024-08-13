@@ -19,10 +19,10 @@ public class TaskService
         return await _httpClient.GetFromJsonAsync<IEnumerable<TaskItem>>("api/TaskItem");
     }
 
-    public async Task<TaskItem> GetTaskByIdAsync(int id)
+    /*public async Task<TaskItem> GetTaskByIdAsync(int id)
     {
         return await _httpClient.GetFromJsonAsync<TaskItem>($"api/TaskItem/{id}");
-    }
+    }*/
 
     public async Task CreateTaskAsync(TaskItem task)
     {

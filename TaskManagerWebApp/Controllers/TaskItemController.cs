@@ -19,15 +19,31 @@ public class TaskItemController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TaskItem>>> GetTask()
     {
-        return await _context.TaskItems.ToListAsync();
+        return await _context.TaskItem.ToListAsync();
     }
 
+HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
   
 
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<TaskItem>> GetTask(int id)
+    {
+        var task = await _context.TaskItem.FindAsync(id);
+
+        if (task == null)
+        {
+            return NotFound();
+        }
+
+        return task;
+    }
+
+3b34327ba75cab196fdd64246e3d36bf9a3a6560:TaskManagerWebApp/Controllers/TaskItemController.cs
     [HttpPost]
     public async Task<ActionResult<TaskItem>> GetTask(TaskItem task)
     {
-        _context.TaskItems.Add(task);
+        _context.TaskItem.Add(task);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
@@ -65,13 +81,13 @@ public class TaskItemController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(int id)
     {
-        var task = await _context.TaskItems.FindAsync(id);
+        var task = await _context.TaskItem.FindAsync(id);
         if (task == null)
         {
             return NotFound();
         }
 
-        _context.TaskItems.Remove(task);
+        _context.TaskItem.Remove(task);
         await _context.SaveChangesAsync();
 
         return NoContent();
@@ -79,7 +95,7 @@ public class TaskItemController : ControllerBase
 
     private bool TaskExists(int id)
     {
-        return _context.TaskItems.Any(e => e.Id == id);
+        return _context.TaskItem.Any(e => e.Id == id);
     }
 
 }

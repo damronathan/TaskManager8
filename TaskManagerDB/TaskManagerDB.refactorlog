@@ -7,4 +7,18 @@
     <Property Name="ParentElementType" Value="SqlSchema" />
     <Property Name="NewName" Value="[TaskItems]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="caf8b15f-bcc5-447a-ba23-0a77a1ca7f90" ChangeDateTime="07/23/2024 22:07:56">
+    <Property Name="ElementName" Value="[dbo].[User].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[UserId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1d654a15-7b4c-45db-8c41-f9150f358b19" ChangeDateTime="07/23/2024 22:13:19">
+    <Property Name="ElementName" Value="[dbo].[TaskItems]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[TaskItem]" />
+  </Operation>
 </Operations>

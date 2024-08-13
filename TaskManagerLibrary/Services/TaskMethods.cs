@@ -7,14 +7,16 @@ using TaskManagerLibrary.Services;
 
 namespace TaskManagerApp.Services
 {
-    public class MenuMethods
+    public class TaskMethods
     {
+
         private readonly TaskService _taskService;
 
-        public MenuMethods(TaskService taskService)
+        public TaskMethods(TaskService taskService)
         {
             _taskService = taskService;
         }
+        
 
         public async Task<TaskItem> PromptForTaskAsync()
         {
@@ -27,13 +29,15 @@ namespace TaskManagerApp.Services
             string? description = Console.ReadLine();
             description = description ?? string.Empty;
 
-            bool isComplete = false;
+/*            int userid = 0;
+*/            bool isComplete = false;
             int id = 0;
-            return new TaskItem(id, title, description, isComplete);
+            return new TaskItem(id, /*userid*/ title, description, isComplete);
         }
 
         public int DisplayMenuAndGetSelection(List<string> menu)
         {
+
             foreach (string item in menu)
             {
                 Console.WriteLine(item);

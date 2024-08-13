@@ -3,7 +3,7 @@
 AS
 BEGIN
     SELECT [ID], [Title], [Description], [IsComplete]
-    FROM [dbo].[TaskItems]
+    FROM [dbo].[TaskItem]
     WHERE [ID] = @TaskID;
 END
 

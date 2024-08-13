@@ -16,7 +16,7 @@ namespace TaskManagerApp
         static async Task Main(string[] args)
         {
             var taskService = new TaskService();
-            var menuMethods = new MenuMethods(taskService);
+            var taskMethods = new TaskMethods(taskService);
 
             // Get all tasks
             var tasks = await taskService.GetTasksAsync();
@@ -35,23 +35,23 @@ namespace TaskManagerApp
 
                 while (true)
                 {
-                    int selection = menuMethods.DisplayMenuAndGetSelection(menu);
+                    int selection = taskMethods.DisplayMenuAndGetSelection(menu);
                     switch (selection)
                     {
                         case 1:
-                            await menuMethods.AddTaskAsync();
+                            await taskMethods.AddTaskAsync();
                             break;
                         case 2:
-                            await menuMethods.ViewTasksAsync();
+                            await taskMethods.ViewTasksAsync();
                             break;
                         case 3:
-                            await menuMethods.MarkCompleteAsync();
+                            await taskMethods.MarkCompleteAsync();
                             break;
                         case 4:
-                            await menuMethods.UpdateTaskAsync();
+                            await taskMethods.UpdateTaskAsync();
                             break;
                         case 5:
-                            await menuMethods.DeleteTaskAsync();
+                            await taskMethods.DeleteTaskAsync();
                             break;
                         case 6:
                             Process[] myProcList = Process.GetProcessesByName("TaskManagerWebApp");

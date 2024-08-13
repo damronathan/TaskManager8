@@ -22,6 +22,10 @@ public class TaskItemController : ControllerBase
         return await _context.TaskItem.ToListAsync();
     }
 
+HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
+  
+
+
     [HttpGet("{id}")]
     public async Task<ActionResult<TaskItem>> GetTask(int id)
     {
@@ -35,6 +39,7 @@ public class TaskItemController : ControllerBase
         return task;
     }
 
+3b34327ba75cab196fdd64246e3d36bf9a3a6560:TaskManagerWebApp/Controllers/TaskItemController.cs
     [HttpPost]
     public async Task<ActionResult<TaskItem>> GetTask(TaskItem task)
     {

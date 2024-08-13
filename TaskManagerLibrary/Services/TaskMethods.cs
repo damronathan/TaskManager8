@@ -29,10 +29,10 @@ namespace TaskManagerApp.Services
             string? description = Console.ReadLine();
             description = description ?? string.Empty;
 
-            int userid = 0;
-            bool isComplete = false;
+/*            int userid = 0;
+*/            bool isComplete = false;
             int id = 0;
-            return new TaskItem(id, userid, title, description, isComplete);
+            return new TaskItem(id, /*userid*/ title, description, isComplete);
         }
 
         public int DisplayMenuAndGetSelection(List<string> menu)

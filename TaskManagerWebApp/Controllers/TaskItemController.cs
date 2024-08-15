@@ -16,16 +16,14 @@ public class TaskItemController : ControllerBase
         _context = context;
     }
 
+    // GET: api/TaskItem
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TaskItem>>> GetTask()
+    public async Task<ActionResult<IEnumerable<TaskItem>>> GetTasks()
     {
         return await _context.TaskItem.ToListAsync();
     }
 
-HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
-  
-
-
+    // GET: api/TaskItem/5
     [HttpGet("{id}")]
     public async Task<ActionResult<TaskItem>> GetTask(int id)
     {
@@ -39,9 +37,9 @@ HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
         return task;
     }
 
-3b34327ba75cab196fdd64246e3d36bf9a3a6560:TaskManagerWebApp/Controllers/TaskItemController.cs
+    // POST: api/TaskItem
     [HttpPost]
-    public async Task<ActionResult<TaskItem>> GetTask(TaskItem task)
+    public async Task<ActionResult<TaskItem>> PostTask(TaskItem task)
     {
         _context.TaskItem.Add(task);
         await _context.SaveChangesAsync();
@@ -49,8 +47,9 @@ HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
         return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
     }
 
+    // PUT: api/TaskItem/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> GetTask(int id, TaskItem task)
+    public async Task<IActionResult> PutTask(int id, TaskItem task)
     {
         if (id != task.Id)
         {
@@ -78,6 +77,7 @@ HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
         return NoContent();
     }
 
+    // DELETE: api/TaskItem/5
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(int id)
     {
@@ -97,6 +97,5 @@ HEAD:TaskManagerWebbApp/Controllers/TaskItemController.cs
     {
         return _context.TaskItem.Any(e => e.Id == id);
     }
-
 }
 

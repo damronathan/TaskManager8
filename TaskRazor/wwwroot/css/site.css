@@ -20,7 +20,19 @@ html {
 body {
     margin-bottom: 60px;
     list-style-position: inside;
+    
 }
 button{
     font-size: 20px;
+}
+title{
+    text-align: center;
+}
+h1{
+    font-size: 30px;
+    color: green;
+}
+h2{
+    font-size: 30px;
+    color: red;
 }

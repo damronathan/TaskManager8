@@ -5,8 +5,8 @@
     ViewData["Title"] = "TASKS";
 }
 <link rel="stylesheet" href="~/css/site.css" />
-<p>
-    <a asp-page="Create">Create New Task</a>
+<p style="width: 100%; text-align: center;">
+    <a asp-page="Create" class="btn btn-primary">Create New Task</a>
 </p>
 
 <h2>Incomplete Tasks</h2>
@@ -37,8 +37,8 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td style="text-align: right">
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-primary">Delete</a>
                     </td>
                 </tr>
             }
@@ -72,8 +72,8 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
                         <td style="text-align: right">
-                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> 
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-primary">Delete</a>
                         </td>
                     </tr>
         }

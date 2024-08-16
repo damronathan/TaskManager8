@@ -5,8 +5,49 @@
     ViewData["Title"] = "TASKS";
 }
 <link rel="stylesheet" href="~/css/site.css" />
-<p1>
+<p>
+    <a asp-page="Create">Create New Task</a>
+</p>
+
+<h2>Incomplete Tasks</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskItem[0].Title)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.TaskItem[0].Description)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TaskItem)
+        {
+            if (item.IsComplete == false)
+            {
+
+                <tr>
+                    <td style="width: 33%;">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td style="text-align: center; width: 33%; margin: 0 auto;">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td style="text-align: right">
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
     <h1>Completed Tasks</h1>
+    
     
 <table class="table">
     <thead>
@@ -14,9 +55,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.TaskItem[0].Title)
             </th>
-                <th style="text-align: center">
+                 <th style="text-align: center">
                 @Html.DisplayNameFor(model => model.TaskItem[0].Description)
-            </th> 
+            </th>  
            
             <th></th>
         </tr>
@@ -24,63 +65,24 @@
     <tbody>
 @foreach (var item in Model.TaskItem) {
     if (item.IsComplete) {
-                <tr>
-                    <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-                        <td style="text-align: center">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td> 
-
-                        <td style="text-align: right">
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-        }
-}
-    </tbody>
-</table>
-</p1>
-<p2>
-    <h2>Incomplete Tasks</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.TaskItem[0].Title)
-                </th>
-                <th style="text-align: center">
-                    @Html.DisplayNameFor(model => model.TaskItem[0].Description)
-                </th> 
-
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.TaskItem)
-            {
-                if (item.IsComplete == false)
-                {
                     <tr>
-                        <td>
+                        <td style="width: 33%;">
                             @Html.DisplayFor(modelItem => item.Title)
-                         </td>
-                        <td style="text-align: center">
+                        </td>
+                        <td style="text-align: center; width: 33%; margin: 0 auto;">
                             @Html.DisplayFor(modelItem => item.Description)
                         </td>
-                        <td style="text-align: right"> 
+                        <td style="text-align: right">
                             <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                             <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                             <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
-                }
-            }
-        </tbody>
-    </table>
-</p2>
-<p>
-    <a asp-page="Create">Create New Task</a>
-</p>
+        }
+}
+    </tbody>
+</table>
+
+    
+
+

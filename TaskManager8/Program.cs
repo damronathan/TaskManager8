@@ -15,7 +15,7 @@ namespace TaskManagerApp
 
         static async Task Main(string[] args)
         {
-            var taskService = new TaskService();
+            var taskService = new ITaskService();
             var taskMethods = new TaskMethods(taskService);
 
             // Get all tasks

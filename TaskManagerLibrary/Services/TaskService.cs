@@ -5,7 +5,16 @@ using System.Threading.Tasks;
 using TaskManagerLibrary.Models;
 using System.Collections.Generic;
 namespace TaskManagerLibrary.Services;
-public class TaskService
+
+public interface ITaskService
+{
+    Task CreateTaskAsync(TaskItem task);
+    Task DeleteTaskAsync(int id);
+    Task<IEnumerable<TaskItem>> GetTasksAsync();
+    Task UpdateTaskAsync(TaskItem task);
+}
+
+public class TaskService : ITaskService
 {
     private readonly HttpClient _httpClient;
 

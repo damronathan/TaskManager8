@@ -10,9 +10,9 @@ namespace TaskManagerApp.Services
     public class TaskMethods
     {
 
-        private readonly TaskService _taskService;
+        private readonly ITaskService _taskService;
 
-        public TaskMethods(TaskService taskService)
+        public TaskMethods(ITaskService taskService)
         {
             _taskService = taskService;
         }

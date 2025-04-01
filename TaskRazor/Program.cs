@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using TaskManagerLibrary.Services;
 using TaskRazor.Data;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<TaskRazorContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'TaskRazorContext' not found.")));
